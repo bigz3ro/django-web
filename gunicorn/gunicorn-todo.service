@@ -1,0 +1,10 @@
+Description=Todo gunicorn daemon
+
+[Service]
+Type=simple
+User=bigz3ro
+Group=www-data
+ExecStart=/home/bigz3ro/todo-django/gunicorn/gunicorn_start.sh
+
+[Install]
+WantedBy=multi-user.target
