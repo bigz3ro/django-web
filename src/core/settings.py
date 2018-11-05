@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework_swagger',
+    'django_extensions',
+    'administrator',
+    'api_versioning'
 ]
 
 MIDDLEWARE = [
@@ -76,10 +80,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'todos',
+        'NAME': 'storebook',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'todo.local',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -123,8 +127,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "sfiles"),)
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
-TEMPLATE_LOADERS = (
-'django.template.loaders.filesystem.Loader',
-'django.template.loaders.app_directories.Loader',)
+# TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+# TEMPLATE_LOADERS = (
+#     'django.template.loaders.filesystem.Loader',
+#     'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+# )
