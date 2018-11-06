@@ -8,10 +8,10 @@ urlpatterns = [
     #     'config/',
     #     include('config.urls', namespace='config'),
     # ),
-    # path(
-    #     'admin/',
-    #     include('administrator.urls', namespace='administrator'),
-    # ),
+    path(
+        'admin/',
+        include('administrator.urls', namespace='administrator'),
+    ),
     # path(
     #     'permission/',
     #     include('permission.urls', namespace='permission'),

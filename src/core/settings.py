@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+import datetime
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_auth',
     'rest_framework_swagger',
     'django_extensions',
     'administrator',
@@ -88,6 +90,31 @@ DATABASES = {
     }
 }
 
+#config Rest api
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ],
+}
+
+# Config auth jwt
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=3),
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=3),
+    'JWT_ALLOW_REFRESH': True,
+    # 'JWT_RESPONSE_PAYLOAD_HANDLER': 'utils.helpers.res_tools.jwt_response_payload_handler',
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

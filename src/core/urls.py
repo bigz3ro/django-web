@@ -23,4 +23,5 @@ urlpatterns = [
     path('dadmin/', admin.site.urls),
     path('schemas/', schema_view),
     path('api/v1/', include('api_versioning.urls1', namespace='api_v1')),
+    # url(r'^.*/$', views.Error404.as_view(),name='error404')
 ]
